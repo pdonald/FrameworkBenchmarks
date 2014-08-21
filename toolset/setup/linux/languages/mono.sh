@@ -24,7 +24,7 @@ make -j4                                                                        
 make install                                                                                && \
                                                                                                \
 echo "Installing RootCAs from Mozilla..."                                                   && \
-(echo 'y' | sudo $IROOT/mono-3.6.0-install/bin/certmgr -ssl -m https://nuget.org || true)   && \
+(echo -e 'y\ny\ny\ny\n' | sudo $IROOT/mono-3.6.0-install/bin/certmgr -ssl -m https://nuget.org || true)   && \
 sudo $IROOT/mono-3.6.0-install/bin/mozroots --import --sync --machine                       && \
                                                                                                \
 touch $IROOT/mono.installed) || touch $IROOT/mono.fail
