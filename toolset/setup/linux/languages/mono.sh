@@ -1,10 +1,10 @@
 #!/bin/bash
 
-
 RETCODE=$(fw_exists mono.installed)
 [ ! "$RETCODE" == 0 ] || { return 0; }
 
-sudo apt-get install -y build-essential \
+sudo apt-get install -y \
+             build-essential \
              autoconf \
              automake \
              libtool \
@@ -21,6 +21,6 @@ make -j4                                                               && \
 make install                                                           && \
                                                                           \
 echo "Installing RootCAs from Mozilla..."                              && \
-mozroots --import --sync --machine                                     && \
+sudo -E PATH=$PATH mozroots --import --sync --machine                  && \
                                                                           \
 touch $IROOT/mono.installed
