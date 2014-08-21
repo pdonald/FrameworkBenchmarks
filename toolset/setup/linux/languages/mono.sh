@@ -2,10 +2,7 @@
 
 
 RETCODE=$(fw_exists mono.installed)
-[ ! "$RETCODE" == 0 ] || { \
-  echo "Installing RootCAs from Mozilla..."; 
-  mozroots --import --sync;
-  return 0; }
+[ ! "$RETCODE" == 0 ] || { return 0; }
 
 sudo apt-get install -y build-essential \
              autoconf \
@@ -24,6 +21,6 @@ make -j4                                                               && \
 make install                                                           && \
                                                                           \
 echo "Installing RootCAs from Mozilla..."                              && \
-mozroots --import --sync                                               && \
+mozroots --import --sync --machine                                     && \
                                                                           \
 touch $IROOT/mono.installed
