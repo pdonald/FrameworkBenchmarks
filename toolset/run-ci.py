@@ -265,9 +265,9 @@ class CIRunnner:
   def run(self):
     ''' Do the requested command using TFB  '''
 
-    if not self._should_run():
-      log.info("I found no changes to `%s` or `toolset/`, aborting verification", self.directory)
-      return 0
+    #if not self._should_run():
+      #log.info("I found no changes to `%s` or `toolset/`, aborting verification", self.directory)
+      #return 0
 
     if self.mode == 'cisetup':
       self.run_travis_setup()
