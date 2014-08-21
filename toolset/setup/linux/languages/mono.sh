@@ -18,12 +18,12 @@ sudo apt-get install -y build-essential \
 fw_get http://download.mono-project.com/sources/mono/mono-3.6.0.tar.bz2 -O mono-3.6.0.tar.bz2
 fw_untar mono-3.6.0.tar.bz2
 
-cd mono-3.6.0
-./autogen.sh --prefix=$IROOT/mono-3.6.0-install
-make -j4 EXTERNAL_MCS=${PWD}/mcs/class/lib/monolite/basic.exe
-make install
-
-echo "Installing RootCAs from Mozilla..."; 
-mozroots --import --sync;
-
+cd mono-3.6.0                                                          && \
+./configure --prefix=$IROOT/mono-3.6.0-install                         && \
+make -j4                                                               && \
+make install                                                           && \
+                                                                          \
+echo "Installing RootCAs from Mozilla..."                              && \
+mozroots --import --sync                                               && \
+                                                                          \
 touch $IROOT/mono.installed
