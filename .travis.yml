@@ -25,11 +25,6 @@ env:
     #
     #  
     - "TESTDIR=C#/aspnet"
-    # - "TESTDIR=C#/aspnet-stripped"
-    - "TESTDIR=C#/evhttp-sharp"
-    # - "TESTDIR=C#/HttpListener"
-    - "TESTDIR=C#/nancy"
-    - "TESTDIR=C#/servicestack"
 
 before_install:
   # Configure Travis-CI build environment for TFB
