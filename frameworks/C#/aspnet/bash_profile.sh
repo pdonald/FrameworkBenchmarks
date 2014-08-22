@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export MONO_ROOT=${IROOT}/mono-3.6.0-install
+export MONO_ROOT=/usr
 
 export PATH="$MONO_ROOT/bin:$PATH"
 

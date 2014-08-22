@@ -1,34 +1,21 @@
 #!/bin/bash
 
-RETCODE=$(fw_exists $IROOT/mono.fail)
-[ ! "$RETCODE" == 0 ] || { return 1; }
-
 RETCODE=$(fw_exists $IROOT/mono.installed)
 [ ! "$RETCODE" == 0 ] || { return 0; }
 
-sudo apt-get install -y \
-             build-essential \
-             autoconf \
-             automake \
-             libtool \
-             zlib1g-dev \
-             pkg-config \
-             gettext
+echo "Installing mono from official Xamarin packages for Debian"
 
-fw_get http://download.mono-project.com/sources/mono/mono-3.6.0.tar.bz2 -O mono-3.6.0.tar.bz2
-fw_untar mono-3.6.0.tar.bz2
+curl -s http://download.mono-project.com/repo/xamarin.gpg | sudo apt-key add -
+echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/xamarin.list
+sudo apt-get update
+sudo apt-get -y install mono-complete
 
-(cd mono-3.6.0                                                                                            && \
-./configure --prefix=$IROOT/mono-3.6.0-install                                                            && \
-make -j4                                                                                                  && \
-make install                                                                                              && \ 
-                                                                                                             \
-echo "Installing RootCAs from Mozilla..."                                                                 && \
-                                                                                                             \
-(echo -e 'y\ny\ny\ny\n' | certmgr -ssl https://nuget.org || true)                                         && \
-mozroots --import --sync                                                                                  && \
-                                                                                                             \
-(echo -e 'y\ny\ny\ny\n' | sudo $IROOT/mono-3.6.0-install/bin/certmgr -ssl -m https://nuget.org || true)   && \
-sudo $IROOT/mono-3.6.0-install/bin/mozroots --import --sync --machine                                     && \
-                                                                                                             \
-touch $IROOT/mono.installed) || touch $IROOT/mono.fail
+echo "Installing RootCAs from Mozilla..."
+
+echo -e 'y\ny\n | certmgr -ssl https://nuget.org
+mozroots --import --sync
+
+sudo certmgr -ssl -m https://nuget.org
+sudo mozroots --import --sync --machine
+
+touch $IROOT/mono.installed
