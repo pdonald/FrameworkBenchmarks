@@ -18,13 +18,17 @@ sudo apt-get install -y \
 fw_get http://download.mono-project.com/sources/mono/mono-3.6.0.tar.bz2 -O mono-3.6.0.tar.bz2
 fw_untar mono-3.6.0.tar.bz2
 
-(cd mono-3.6.0                                                                              && \
-./configure --prefix=$IROOT/mono-3.6.0-install                                              && \
-make -j4                                                                                    && \
-make install                                                                                && \
-                                                                                               \
-echo "Installing RootCAs from Mozilla..."                                                   && \
+(cd mono-3.6.0                                                                                            && \
+./configure --prefix=$IROOT/mono-3.6.0-install                                                            && \
+make -j4                                                                                                  && \
+make install                                                                                              && \ 
+                                                                                                             \
+echo "Installing RootCAs from Mozilla..."                                                                 && \
+                                                                                                             \
+(echo -e 'y\ny\ny\ny\n' | certmgr -ssl https://nuget.org || true)                                         && \
+mozroots --import --sync                                                                                  && \
+                                                                                                             \
 (echo -e 'y\ny\ny\ny\n' | sudo $IROOT/mono-3.6.0-install/bin/certmgr -ssl -m https://nuget.org || true)   && \
-sudo $IROOT/mono-3.6.0-install/bin/mozroots --import --sync --machine                       && \
-                                                                                               \
+sudo $IROOT/mono-3.6.0-install/bin/mozroots --import --sync --machine                                     && \
+                                                                                                             \
 touch $IROOT/mono.installed) || touch $IROOT/mono.fail
