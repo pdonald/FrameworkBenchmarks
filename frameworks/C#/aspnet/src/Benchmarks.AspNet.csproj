@@ -87,11 +87,11 @@
     </Reference>
     <Reference Include="MySql">
       <Private>True</Private>
-      <HintPath>..\lib\MySql.Data.6.8.3\lib\net45\MySql.Data.dll</HintPath>
+      <HintPath>..\lib\MySql.Data.6.9.3\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql">
       <Private>True</Private>
-      <HintPath>..\lib\MySql.Data.Entities.6.8.3\lib\net45\mysql.data.entity.EF6.dll</HintPath>
+      <HintPath>..\lib\MySql.Data.Entity.6.9.3\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql">
       <Private>True</Private>
