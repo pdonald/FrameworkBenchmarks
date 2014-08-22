@@ -33,9 +33,9 @@
 
 **Databases**
 
-* MySQL Connector/Net 6.8.3
+* MySQL Connector/Net 6.9.3
 * Npgsql 2.0.14.3
-* Entity Framework 6.0.2
+* Entity Framework 6.1.1
 * Mongo C# Driver 1.8.3
 
 **Developer Tools**

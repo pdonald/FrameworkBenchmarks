@@ -79,11 +79,11 @@
     </Reference>
     <Reference Include="EntityFramework">
       <Private>True</Private>
-      <HintPath>..\lib\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\lib\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <Private>True</Private>
-      <HintPath>..\lib\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\lib\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="MySql">
       <Private>True</Private>
