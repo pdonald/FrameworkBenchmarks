@@ -10,6 +10,6 @@ git checkout 8a31bc625727594d42f94173768bee5cf8afd0a4
 
 ./autogen.sh --prefix=/usr
 make
-make install
+sudo make install
 
 touch $IROOT/xsp.installed
