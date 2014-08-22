@@ -12,10 +12,10 @@ sudo apt-get -y install mono-complete
 
 echo "Installing RootCAs from Mozilla..."
 
-echo -e 'y\ny\n | certmgr -ssl https://nuget.org
+echo -e 'y\ny\n' | certmgr -ssl https://nuget.org
 mozroots --import --sync
 
-sudo certmgr -ssl -m https://nuget.org
+echo -e 'y\ny\n' | sudo certmgr -ssl -m https://nuget.org
 sudo mozroots --import --sync --machine
 
 touch $IROOT/mono.installed
