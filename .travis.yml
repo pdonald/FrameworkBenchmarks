@@ -24,7 +24,7 @@ env:
     #   find . -type d -depth 2 | sed 's|./|    - "TESTDIR=|' | sed 's/$/"/g'
     #
     #  
-    - "TESTDIR=C#/aspnet"
+    - "TESTDIR=CSharp/aspnet"
 
 before_install:
   # Need to install python modules before using 
