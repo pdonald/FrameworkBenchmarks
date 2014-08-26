@@ -4,3 +4,4 @@
 */obj/*
 lib/*
 !lib/.nuget
+!lib/packages.config
