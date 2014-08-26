@@ -23,20 +23,20 @@
 **Web Servers**
 
 * IIS 8 (Windows)
-* XSP latest (Linux)
+* XSP 3.0 latest (Linux)
 * nginx 1.4.1 & XSP FastCGI (Linux)
 
 **Web Stack**
 
 * ASP.NET 4.5
-* ASP.NET MVC Framework 5.1.0
+* ASP.NET MVC Framework 4 (5.x does not work on mono)
 
 **Databases**
 
 * MySQL Connector/Net 6.9.3
-* Npgsql 2.0.14.3
+* Npgsql 2.1.3
 * Entity Framework 6.1.1
-* Mongo C# Driver 1.8.3
+* Mongo C# Driver 1.9.2
 
 **Developer Tools**
 

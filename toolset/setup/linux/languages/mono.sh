@@ -11,11 +11,15 @@ sudo apt-get update
 sudo apt-get -y install mono-complete || sudo apt-get -y remove monodoc-browser
 
 echo "Installing RootCAs from Mozilla..."
-
+# for current user
 echo -e 'y\ny\n' | certmgr -ssl https://nuget.org
 mozroots --import --sync
-
+# for machine
 echo -e 'y\ny\n' | sudo certmgr -ssl -m https://nuget.org
 sudo mozroots --import --sync --machine
+
+# For apps that need write access to the registry
+sudo mkdir -p /etc/mono/registry
+sudo chmod 777 /etc/mono/registry
 
 touch $IROOT/mono.installed
